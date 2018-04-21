@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <title>Logowanie</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+</head>
+<body>
+<center>
+
+    <!-- jezeli informacja istnieje to tworzony jest div z tą informacją -->
+    <div th:if="${info != null}" class="alert alert-danger">
+        <h1 th:text="${info}"></h1>
+    </div>
+    <br/>
+
+    <!-- -->
+    <!-- form do logowania -->
+
+    <!-- pobieranie zmiennych login i password -->
+    <form style="width: 30%" th:action="@{/login}" method="post">
+        <div class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+            <input  type="text" class="form-control" th:name="login" placeholder="Login">
+        </div>
+        <div class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+            <input type="password" class="form-control" th:name="password" placeholder="Hasło">
+        </div>
+
+        <br/>
+
+        <button class="btn btn-success" type="submit">Zaloguj</button>
+        <button class="btn btn-danger" type="button" onclick="location.href='/register';" >Rejestracja</button>
+    </form>
+</center>
+</body>
+</html>
